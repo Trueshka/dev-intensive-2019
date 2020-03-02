@@ -8,6 +8,7 @@ import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -36,11 +37,11 @@ class ExampleUnitTest {
 
     @Test
     fun test_decomposition() {
-        val user = User.makeUser(null)
+        val user = User.makeUser(" ")
 fun getUserInfo()= user
         val (id,firstName, lastName) = getUserInfo()
     println("${user.component1()} $firstName $lastName")
-
+println(Utils.toInitials(" ",""))
     }
     @Test
     fun test_copy() {

@@ -10,13 +10,12 @@ object Utils {
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
 
-            if (firstName.isNullOrBlank()) {
-                firstName = null
-                lastName = null
-            }
-            else if(lastName.isNullOrBlank()){
-                    lastName=null
-            }
+        if (firstName.isNullOrBlank()) {
+            firstName = null
+            lastName = null
+        } else if (lastName.isNullOrBlank()) {
+            lastName = null
+        }
 
 
 
@@ -69,12 +68,11 @@ object Utils {
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
         lastName = lastName?.capitalize()
-        state = "$firstName $lastName"
+        state = firstName+devider+ lastName
         return state
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-
 
         return if (firstName != null && lastName != null)
             firstName[0].toString() + lastName[0].toString()
