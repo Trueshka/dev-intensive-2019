@@ -59,8 +59,9 @@ println("""
     }
     @Test
     fun test_data_mapping() {
-        val user = User.makeUser("John Wick")
+        val user = User.makeUser("Иван Попов")
         val userView = user.toUserView()
+        userView.printMe()
     }
     @Test
     fun test_abstract_factory() {
