@@ -40,7 +40,7 @@ fun getUserInfo()= user
    // println("${user.component1()} $firstName $lastName")
        // println(Utils.toInitials(" ", ""))
         println(Utils.transliteration("Amazing Петр","_"))
-     //  print( Date().add(2, TimeUnits.HOUR).humanizeDiff())
+      //print( Date().add(-3, TimeUnits.HOUR).humanizeDiff())
 
     }
     @Test

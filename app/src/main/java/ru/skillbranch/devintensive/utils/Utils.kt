@@ -63,18 +63,18 @@ object Utils {
             }
         }
         val parts: List<String>? = state.split(" ")
-        /*var firstName = parts?.getOrNull(0)
+        var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
-        firstName = firstName?.capitalize()
-        lastName = lastName?.capitalize()
 
-        state = firstName + devider + lastName*/
 
-        return parts!!.joinToString(separator = devider) {it.capitalize()  }
+        state = firstName!!.capitalize() + devider + lastName!!.capitalize()
+
+       // return parts!!.joinToString(separator = devider) {it.capitalize()  }
+        return state
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        
+
         return if (!firstName.isNullOrBlank() && !lastName.isNullOrBlank())
             firstName[0].toString().toUpperCase() + lastName[0].toString().toUpperCase()
         else if (firstName.isNullOrBlank() && !lastName.isNullOrBlank()) lastName?.get(0)?.toString().toUpperCase()
