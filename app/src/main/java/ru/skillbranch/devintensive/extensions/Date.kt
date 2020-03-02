@@ -4,6 +4,7 @@ import java.lang.IllegalStateException
 import java.lang.Math.abs
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.roundToLong
 
 const val SECOND = 1000L
 const val MINUTE = 60 * SECOND
@@ -56,7 +57,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         in -360* 60*60..-22* 60*60 -> "${kotlin.math.abs(time/ 60/60/24)} дней назад"
         else -> "более года назад"
     }
-    return state
+    return time.toString()
 
 /*
  in -1 downTo 0  -> "только что"
