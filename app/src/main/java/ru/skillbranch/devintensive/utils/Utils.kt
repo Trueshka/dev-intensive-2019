@@ -9,12 +9,16 @@ object Utils {
 
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
-        if (firstName != null) {
-            if (firstName.isBlank()) {
+
+            if (firstName.isNullOrBlank()) {
                 firstName = null
                 lastName = null
             }
-        }
+            else if(lastName.isNullOrBlank()){
+                    lastName=null
+            }
+
+
 
         return firstName to lastName
     }
@@ -60,7 +64,7 @@ object Utils {
                 else -> i
             }
         }
-        val parts: List<String>? = state.split(" ")
+        val parts: List<String>? = state.split(devider)
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
@@ -71,12 +75,10 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 
-        val initials = if (firstName != null && lastName != null)
+
+        return if (firstName != null && lastName != null)
             firstName[0].toString() + lastName[0].toString()
         else if (firstName != null && lastName == null) firstName[0].toString()
-        else null.toString()
-
-
-        return initials
+        else null
     }
 }

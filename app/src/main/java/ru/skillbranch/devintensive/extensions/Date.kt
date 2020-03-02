@@ -30,7 +30,7 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 fun Date.humanizedDiff(date: Date = Date()): String {
 
     val timeNow = this.time
-//var timeNow = Date().add(4,TimeUnits.DAY).time
+//var timeNow = Date().add(3,TimeUnits.HOUR).time
 
     val time = (timeNow-date.time) /1000
 
