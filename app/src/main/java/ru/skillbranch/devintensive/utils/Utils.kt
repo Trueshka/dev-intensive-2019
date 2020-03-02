@@ -63,12 +63,14 @@ object Utils {
             }
         }
         val parts: List<String>? = state.split(" ")
-        var firstName = parts?.getOrNull(0)
+        /*var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
         lastName = lastName?.capitalize()
-        state = firstName + devider + lastName
-        return state
+
+        state = firstName + devider + lastName*/
+
+        return parts!!.joinToString(separator = devider) {it.capitalize()  }
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
