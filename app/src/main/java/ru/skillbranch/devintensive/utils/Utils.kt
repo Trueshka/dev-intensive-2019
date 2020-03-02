@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.utils
 
+import java.util.*
+
 object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
 
@@ -17,79 +19,48 @@ object Utils {
         return firstName to lastName
     }
 
+
     fun transliteration(payload: String, devider: String = " "): String {
         var state = ""
         for (i in payload) {
-            state += when (i.toString().toLowerCase()) {
+            state += when (i.toString().toLowerCase(Locale.getDefault())) {
                 "а" -> "a"
-
                 "б" -> "b"
-
                 "в" -> "v"
-
                 "г" -> "g"
-
                 "д" -> "d"
-
                 "е" -> "e"
-
                 "ё" -> "e"
-
                 "ж" -> "zh"
-
                 "з" -> "z"
-
                 "и" -> "i"
-
                 "й" -> "i"
-
                 "к" -> "k"
-
                 "л" -> "l"
-
                 "м" -> "m"
-
                 "н" -> "n"
-
                 "о" -> "o"
-
                 "п" -> "p"
-
                 "р" -> "r"
-
                 "с" -> "s"
-
                 "т" -> "t"
-
                 "у" -> "u"
-
                 "ф" -> "f"
-
                 "х" -> "h"
-
                 "ц" -> "c"
-
                 "ч" -> "ch"
-
                 "ш" -> "sh"
-
                 "щ" -> "sh"
-
                 "ъ" -> ""
-
                 "ы" -> "i"
-
                 "ь" -> ""
-
                 "э" -> "e"
-
                 "ю" -> "yu"
-
                 "я" -> "ya"
                 else -> i
             }
         }
-        val parts: List<String>? = state?.split(" ")
+        val parts: List<String>? = state.split(" ")
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
@@ -99,11 +70,11 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        var initials = ""
-        if (firstName != null && lastName != null) initials =
+
+        val initials = if (firstName != null && lastName != null)
             firstName[0].toString() + lastName[0].toString()
-        else if (firstName != null && lastName == null) initials = firstName[0].toString()
-        else initials = null.toString()
+        else if (firstName != null && lastName == null) firstName[0].toString()
+        else null.toString()
 
 
         return initials
