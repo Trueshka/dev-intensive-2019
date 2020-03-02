@@ -37,12 +37,12 @@ class ExampleUnitTest {
 
     @Test
     fun test_decomposition() {
-   /*     val user = User.makeUser(" ")
+        val user = User.makeUser(" ")
 fun getUserInfo()= user
         val (id,firstName, lastName) = getUserInfo()
-    println("${user.component1()} $firstName $lastName")*/
-println(Utils.toInitials(" ",""))
-        //println(Utils.transliteration("Ivan Поа","_"))
+   // println("${user.component1()} $firstName $lastName")
+//println(Utils.toInitials(" ",""))
+        println(Utils.transliteration("Ivan Поа","_"))
 
     }
     @Test

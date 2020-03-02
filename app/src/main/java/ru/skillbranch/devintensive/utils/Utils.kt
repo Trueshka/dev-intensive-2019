@@ -4,9 +4,8 @@ import java.util.*
 
 object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
-        var firstName=null
-        var lastName=null
-        if (!fullName.isNullOrBlank()){
+
+
             val parts: List<String>? = fullName?.split(" ")
 
             var firstName = parts?.getOrNull(0)
@@ -19,11 +18,6 @@ object Utils {
             } else if (lastName.isNullOrBlank()) {
                 lastName = null
             }
-        }
-
-
-
-
         return firstName to lastName
     }
 
@@ -68,12 +62,12 @@ object Utils {
                 else -> i
             }
         }
-        val parts: List<String>? = state.split(devider)
+        val parts: List<String>? = state.split(" ")
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
         lastName = lastName?.capitalize()
-        state = firstName+devider+ lastName
+        state = firstName+devider+lastName
         return state
     }
 

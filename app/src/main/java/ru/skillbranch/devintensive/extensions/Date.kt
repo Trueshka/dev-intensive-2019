@@ -27,7 +27,7 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
     return this
 }
 
-fun Date.humanizedDiff(date: Date = Date()): String {
+fun Date.humanizeDiff(date: Date = Date()): String {
 
     val timeNow = this.time
 //var timeNow = Date().add(3,TimeUnits.HOUR).time
