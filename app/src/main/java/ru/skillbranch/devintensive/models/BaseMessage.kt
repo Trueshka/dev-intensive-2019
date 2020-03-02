@@ -1,6 +1,8 @@
 package ru.skillbranch.devintensive.models
 
 import android.service.voice.AlwaysOnHotwordDetector
+import ru.skillbranch.devintensive.extensions.TimeUnits
+import ru.skillbranch.devintensive.extensions.add
 import java.util.*
 
 abstract class BaseMessage(

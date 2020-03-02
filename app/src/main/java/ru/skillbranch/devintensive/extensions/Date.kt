@@ -29,21 +29,25 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 
 fun Date.humanizedDiff(date: Date = Date()): String {
 
-    var timeNow = this.time * SECOND
-    var time = timeNow-(date.time * SECOND)
+    val timeNow = this.time
+//var timeNow = Date().add(4,TimeUnits.DAY).time
+
+    val time = (timeNow-date.time) /1000
+
     var state = ""
     state += when (time) {
         in 0..1 -> "только что"
         in 1..45 -> "несколько секунд назад"
         in 45..75 -> "минуту назад"
-        in 75..45* MINUTE -> "${time* MINUTE} минут назад"
-        in 45* MINUTE..75* MINUTE -> "час назад"
-        in 75* MINUTE..22* HOUR -> "${time* MINUTE} часов назад"
-        in 22* HOUR..26* HOUR -> "час назад"
-        in 22* HOUR..360* DAY -> "${time* DAY} дней назад"
+        in 75..45*60 -> "${time/ 60} минут назад"
+        in 45* 60..75*60 -> "час назад"
+        in 75* 60..22* 60*60 -> "${time/60/60} часов назад"
+        in 22*60*60..26* 60*60 ->  "день назад"
+        in 22* 60*60..360* 60*60 -> "${time/ 60/60/24} дней назад"
         else -> "более года назад"
     }
     return state
+
 }
 
 enum class TimeUnits {
