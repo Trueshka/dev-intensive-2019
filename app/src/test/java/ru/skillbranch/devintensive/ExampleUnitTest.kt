@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -41,8 +38,9 @@ class ExampleUnitTest {
 fun getUserInfo()= user
         val (id,firstName, lastName) = getUserInfo()
    // println("${user.component1()} $firstName $lastName")
-//println(Utils.toInitials(" ",""))
-        println(Utils.transliteration("Ivan Поа","_"))
+       // println(Utils.toInitials(" ", ""))
+     //   println(Utils.transliteration("Amazing Петр","_"))
+       print( Date().add(2, TimeUnits.HOUR).humanizeDiff())
 
     }
     @Test
