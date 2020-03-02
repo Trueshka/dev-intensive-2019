@@ -6,18 +6,18 @@ object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
 
 
-            val parts: List<String>? = fullName?.split(" ")
+        val parts: List<String>? = fullName?.split(" ")
 
-            var firstName = parts?.getOrNull(0)
-            var lastName = parts?.getOrNull(1)
+        var firstName = parts?.getOrNull(0)
+        var lastName = parts?.getOrNull(1)
 
 
-            if(firstName.isNullOrBlank()) {
-                firstName = null
-                lastName = null
-            } else if (lastName.isNullOrBlank()) {
-                lastName = null
-            }
+        if (firstName.isNullOrBlank()) {
+            firstName = null
+            lastName = null
+        } else if (lastName.isNullOrBlank()) {
+            lastName = null
+        }
         return firstName to lastName
     }
 
@@ -67,7 +67,7 @@ object Utils {
         var lastName = parts?.getOrNull(1)
         firstName = firstName?.capitalize()
         lastName = lastName?.capitalize()
-        state = firstName+devider+lastName
+        state = firstName + devider + lastName
         return state
     }
 
@@ -75,7 +75,10 @@ object Utils {
 
         return if (!firstName.isNullOrBlank() && !lastName.isNullOrBlank())
             firstName[0].toString().toUpperCase() + lastName[0].toString().toUpperCase()
+        else if (firstName.isNullOrBlank() && !lastName.isNullOrBlank()) lastName?.get(0)?.toString().toUpperCase()
         else if (!firstName.isNullOrBlank() && lastName.isNullOrBlank()) firstName?.get(0)?.toString().toUpperCase()
         else null
+
+
     }
 }
