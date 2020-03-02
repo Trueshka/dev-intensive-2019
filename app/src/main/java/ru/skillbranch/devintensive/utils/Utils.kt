@@ -4,18 +4,23 @@ import java.util.*
 
 object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
+        var firstName=null
+        var lastName=null
+        if (!fullName.isNullOrBlank()){
+            val parts: List<String>? = fullName?.split(" ")
 
-        val parts: List<String>? = fullName?.split(" ")
+            var firstName = parts?.getOrNull(0)
+            var lastName = parts?.getOrNull(1)
 
-        var firstName = parts?.getOrNull(0)
-        var lastName = parts?.getOrNull(1)
 
-        if (firstName.isNullOrBlank()) {
-            firstName = null
-            lastName = null
-        } else if (lastName.isNullOrBlank()) {
-            lastName = null
+            if(firstName.isNullOrBlank()) {
+                firstName = null
+                lastName = null
+            } else if (lastName.isNullOrBlank()) {
+                lastName = null
+            }
         }
+
 
 
 
@@ -74,9 +79,9 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 
-        return if (firstName != null && lastName != null)
+        return if (!firstName.isNullOrBlank() && !lastName.isNullOrBlank())
             firstName[0].toString() + lastName[0].toString()
-        else if (firstName != null && lastName == null) firstName[0].toString()
+        else if (!firstName.isNullOrBlank() && lastName.isNullOrBlank()) firstName?.get(0)?.toString()
         else null
     }
 }
