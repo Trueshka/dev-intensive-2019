@@ -78,7 +78,7 @@ for(i in parts){
         //return state*/
          var state = ""
             for (i in payload) {
-                state += when (i.toString().toLowerCase(Locale.getDefault())) {
+                state += when (i.toString()) {
                     "а" -> "a"
                     "б" -> "b"
                     "в" -> "v"
@@ -112,6 +112,39 @@ for(i in parts){
                     "э" -> "e"
                     "ю" -> "yu"
                     "я" -> "ya"
+                    "А" -> "A"
+                    "Б" -> "B"
+                    "В" -> "V"
+                    "Г" -> "G"
+                    "Д" -> "D"
+                    "Е" -> "E"
+                    "Ё" -> "E"
+                    "Ж" -> "Zh"
+                    "З" -> "Z"
+                    "И" -> "I"
+                    "Й" -> "I"
+                    "К" -> "K"
+                    "Л" -> "L"
+                    "М" -> "M"
+                    "Н" -> "N"
+                    "О" -> "O"
+                    "П" -> "P"
+                    "Р" -> "R"
+                    "С" -> "S"
+                    "Т" -> "T"
+                    "У" -> "U"
+                    "Ф" -> "F"
+                    "Х" -> "H"
+                    "Ц" -> "C"
+                    "Ч" -> "Ch"
+                    "Ш" -> "Sh"
+                    "Щ" -> "Sh"
+                    "Ъ" -> ""
+                    "Ы" -> "I"
+                    "Ь" -> ""
+                    "Э" -> "E"
+                    "Ю" -> "Yu"
+                    "Я" -> "Ya"
                     else -> i
                 }
             }
