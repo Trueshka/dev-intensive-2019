@@ -34,7 +34,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
     val timeNow = this.time
 //var timeNow = Date().add(3,TimeUnits.HOUR).time
 
-    val time = (timeNow-date.time) /1000 +1
+    val time = (timeNow-date.time) /1000
 
     var state = ""
     state += when (time) {

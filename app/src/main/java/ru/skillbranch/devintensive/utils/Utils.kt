@@ -67,7 +67,7 @@ object Utils {
         //var lastName = parts?.getOrNull(1)
       //  state = firstName!!.capitalize() + devider + lastName!!.capitalize()
 
-       return parts?.joinToString(separator = devider) {it.capitalize()  }.toString()
+       return parts?.joinToString(separator = devider).toString()
        // return state
     }
 
