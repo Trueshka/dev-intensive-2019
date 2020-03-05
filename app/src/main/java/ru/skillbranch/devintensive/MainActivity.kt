@@ -6,6 +6,7 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
@@ -41,9 +42,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         benderImage.setColorFilter(Color.rgb(r, g, b), PorterDuff.Mode.MULTIPLY)
 
+        messageET.setOnEditorActionListener { v, actionId, event ->
+           // Log.d("M_MainActivity", "actionId $actionId event $event")
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
 
-      //  messageET.onEditorAction()
+                val (phase, color) = benderObj.listenAnswer(messageET.text.toString().toLowerCase())
+                messageET.setText("")
+                val (r, g, b) = color
+                benderImage.setColorFilter(Color.rgb(r, g, b), PorterDuff.Mode.MULTIPLY)
+                textTxt.text = phase
+              //  Log.d("M_MainActivity", "111111111111onCreate")
+                this.hideKeyboard()
+                true
+            } else {
+                false
+            }
+
+        }
+
         textTxt.text = benderObj.ask_question()
+
+
         sendBtn.setOnClickListener(this)
     }
 
@@ -94,7 +113,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val (r, g, b) = color
             benderImage.setColorFilter(Color.rgb(r, g, b), PorterDuff.Mode.MULTIPLY)
             textTxt.text = phase
-
         }
 
     }

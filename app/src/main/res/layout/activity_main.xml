@@ -43,6 +43,7 @@
             android:hint="Введите текст"
             android:lines="1"
             android:imeOptions="actionDone"
+            android:singleLine="true"
             android:paddingLeft="@dimen/spacing_normal_16"
             android:paddingTop="@dimen/spacing_normal_16"
             android:paddingRight="@dimen/spacing_normal_16"
