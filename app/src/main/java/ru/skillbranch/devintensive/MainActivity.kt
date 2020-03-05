@@ -1,7 +1,6 @@
 package ru.skillbranch.devintensive
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -80,8 +79,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putString("STATUS", benderObj.status.name)
-        outState?.putString("QUESTION", benderObj.question.name)
+        outState.putString("STATUS", benderObj.status.name)
+        outState.putString("QUESTION", benderObj.question.name)
         Log.d(
             "M_MainActivity",
             "onSaveInstanceState${benderObj.status.name} ${benderObj.question.name}"
@@ -97,9 +96,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             textTxt.text = phase
 
         }
+this.hideKeyboard()
     }
 
-    fun Activity.hideKeyboard(view: View?) {
-        hideKeyboard(if (currentFocus == null) View(this) else currentFocus)
+    fun Activity.hideKeyboard() {
+        val imm =
+            this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view: View? = this.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(this)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
