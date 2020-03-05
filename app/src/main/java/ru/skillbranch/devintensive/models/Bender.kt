@@ -22,12 +22,12 @@ question=question.nextQuestion()
     "Отлично - ты справился\n${question.question}" to status.color
 }
         else {
-    count++
+   count++
   status=status.nextStatus()
 if(count==3) {
     status = Status.NORMAL
     question = Question.NAME
-    count=0
+   // count=0*/
   "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
 
 }
