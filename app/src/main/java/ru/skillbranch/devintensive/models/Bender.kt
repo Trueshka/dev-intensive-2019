@@ -32,7 +32,7 @@ if(count==3) {
 
 }
     else{
-    "Это не правильный ответ!\n${question.question}" to status.color
+    "Это неправильный ответ!\n${question.question}" to status.color
     }
 }
 
