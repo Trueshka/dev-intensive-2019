@@ -1,5 +1,8 @@
 package ru.skillbranch.devintensive.models
 
+import android.app.Activity
+import android.view.View
+
 class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
     var count =0
     fun ask_question():String = when(question){
@@ -11,6 +14,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         Question.IDLE -> Question.IDLE.question
     }
     fun listenAnswer(answer:String) : Pair<String,Triple<Int,Int,Int>>{
+
 return if(question.answers.contains(answer)){
 question=question.nextQuestion()
     "Отлично - это правильный ответ! \n${question.question}" to status.color
@@ -70,4 +74,5 @@ if(count==3) {
 
         abstract fun nextQuestion(): Question
     }
+
 }

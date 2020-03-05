@@ -1,18 +1,20 @@
 package ru.skillbranch.devintensive
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.skillbranch.devintensive.models.Bender
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var benderImage: ImageView
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val status = savedInstanceState?.getString("STATUS") ?: Bender.Status.NORMAL.name
         val question = savedInstanceState?.getString("QUESTION") ?: Bender.Question.NAME.name
         benderObj = Bender(Bender.Status.valueOf(status), Bender.Question.valueOf(question))
+
         Log.d("M_MainActivity", "onCreate")
 
         val (r, g, b) = benderObj.status.color
@@ -94,5 +97,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             textTxt.text = phase
 
         }
+    }
+
+    fun Activity.hideKeyboard(view: View?) {
+        hideKeyboard(if (currentFocus == null) View(this) else currentFocus)
     }
 }
