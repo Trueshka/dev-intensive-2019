@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         benderImage.setColorFilter(Color.rgb(r, g, b), PorterDuff.Mode.MULTIPLY)
 
 
-
+      //  messageET.onEditorAction()
         textTxt.text = benderObj.ask_question()
         sendBtn.setOnClickListener(this)
     }
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             textTxt.text = phase
 
         }
-this.hideKeyboard()
+
     }
 
     fun Activity.hideKeyboard() {
@@ -110,4 +110,5 @@ this.hideKeyboard()
         }
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
 }

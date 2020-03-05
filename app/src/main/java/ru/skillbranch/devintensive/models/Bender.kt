@@ -2,6 +2,7 @@ package ru.skillbranch.devintensive.models
 
 import android.app.Activity
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 
 class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
     var count =0
@@ -74,5 +75,7 @@ if(count==3) {
 
         abstract fun nextQuestion(): Question
     }
+
+
 
 }
