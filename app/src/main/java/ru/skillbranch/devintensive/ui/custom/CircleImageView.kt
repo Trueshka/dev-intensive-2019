@@ -73,8 +73,8 @@ class CircleImageView @JvmOverloads constructor(
 
         //   super.onDraw(canvas)
         canvas?.drawBitmap(resultBm,viewRect,viewRect,null)
-        val half = (borderWidth/2).toInt()
-        viewRect.inset(half,half)
+      //  val half = (borderWidth/2).toInt()
+        //viewRect.inset(half,half)
         canvas?.drawOval(viewRect.toRectF(),borderPaint)
     }
 
