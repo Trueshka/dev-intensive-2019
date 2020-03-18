@@ -7,6 +7,7 @@ import ru.skillbranch.devintensive.App
 import ru.skillbranch.devintensive.models.Profile
 
 object PreferencesRepository {
+    private const val NICK_NAME = "NICK_NAME"
     private const val FIRST_NAME = "FIRST_NAME"
     private const val LAST_NAME = "LAST_NAME"
     private const val ABOUT = "ABOUT"
@@ -26,7 +27,8 @@ putValue(APP_THEME to theme)
     }
     fun getAppTheme(): Int  = prefs.getInt(APP_THEME,AppCompatDelegate.MODE_NIGHT_NO)
     fun getProfile(): Profile = Profile(
-        prefs.getString(FIRST_NAME,"")!!,
+                // prefs.getString(NICK_NAME,"")!!,
+                prefs.getString(FIRST_NAME,"")!!,
                 prefs.getString(LAST_NAME,"")!!,
                 prefs.getString(ABOUT,"")!!,
                 prefs.getString(REPOSITORY,"")!!,

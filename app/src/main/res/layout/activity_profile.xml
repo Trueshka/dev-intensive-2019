@@ -283,4 +283,11 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/spacing_normal_16"/>
     </LinearLayout>
+    <ru.skillbranch.devintensive.ui.custom.CircleImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_avatar"
+        app:cv_border_width="@dimen/def_border_2"
+        app:cv_color="@color/color_divider_dark"
+        />
 </LinearLayout>
